@@ -1,5 +1,8 @@
 package ch.inftec.ju.fx.concurrent;
 
+import ch.inftec.ju.fx.DetailMessageViewModel;
+import ch.inftec.ju.util.AssertUtil;
+import ch.inftec.ju.util.fx.JuFxUtils;
 import javafx.concurrent.Task;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
@@ -8,9 +11,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
-import ch.inftec.ju.fx.DetailMessageViewModel;
-import ch.inftec.ju.util.AssertUtil;
-import ch.inftec.ju.util.fx.JuFxUtils;
 
 /**
  * Controller class that can be used to execute a JavaFX class providing
@@ -29,9 +29,12 @@ public class TaskExecutorController {
 	
 	/**
 	 * Executes the specified task in this controller.
-	 * @param task Task that hasn't been started yet.
-	 * @param doneEventHandlerFx EventHandler that is called when the task is done (either cancelled or successfully completed).
-	 * The handler will run in the FX application thread
+	 * 
+	 * @param task
+	 *            Task that hasn't been started yet.
+	 * @param doneEventHandler
+	 *            EventHandler that is called when the task is done (either cancelled or successfully completed).
+	 *            The handler will run in the FX application thread
 	 */
 	public void executeTask(final Task<?> task, EventHandler<WorkerStateEvent> doneEventHandler) {
 		AssertUtil.assertNull("Controller supports only one task execution", this.model);
