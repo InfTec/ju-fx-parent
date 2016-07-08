@@ -157,9 +157,11 @@ public class AuthenticationEditorModel {
 	 * <p>
 	 * This method will remove any roles that the user currently has, but that are not
 	 * specified in the roles list.
-	 * @param u
-	 * @param roles All roles the user should have, including the current roles that
-	 * shouldn't be deleted
+	 * 
+	 * @param user
+	 * @param roles
+	 *            All roles the user should have, including the current roles that
+	 *            shouldn't be deleted
 	 */
 	public void setRoles(AuthUser user, List<String> roles) {
 		this.em.merge(user);		
